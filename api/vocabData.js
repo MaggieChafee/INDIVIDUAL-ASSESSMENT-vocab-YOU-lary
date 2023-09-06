@@ -2,6 +2,7 @@ import client from '../utils/client';
 
 const endpoint = client.databaseURL;
 
+// GET Vocab by UserID
 const getVocab = (userId) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/vocab.json?orderBy="userId"&equalTo="${userId}"`, {
     method: 'GET',
@@ -19,6 +20,8 @@ const getVocab = (userId) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+// DELETE Vocab
+
 const deleteVocab = (firebaseKey) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/vocab/${firebaseKey}.json`, {
     method: 'DELETE',
@@ -30,6 +33,7 @@ const deleteVocab = (firebaseKey) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+// GET JavaScript Specific Vocab
 const getJavaScriptVocab = () => new Promise((resolve, reject) => {
   fetch(`${endpoint}/vocab.json?orderBy="category"&equalTo="JavaScript"`, {
     method: 'GET',
