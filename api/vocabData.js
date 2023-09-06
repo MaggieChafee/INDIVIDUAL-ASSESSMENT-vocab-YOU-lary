@@ -2,8 +2,8 @@ import client from '../utils/client';
 
 const endpoint = client.databaseURL;
 
-const getVocab = (userId) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/vocab.json?orderBy="userId"&equalTo="${userId}"`, {
+const getVocab = () => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/vocab.json`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json'
@@ -30,4 +30,15 @@ const deleteVocab = (firebaseKey) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-export { getVocab, deleteVocab };
+const getJavaScriptVocab = () => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/vocab.json?orderBy="category"&equalTo="JavaScript"`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+  }).then((response) => response.json)
+    .then((data) => resolve(data))
+    .catch(reject);
+});
+
+export { getVocab, deleteVocab, getJavaScriptVocab };

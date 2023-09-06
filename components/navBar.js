@@ -13,7 +13,7 @@ const navBar = () => {
           <a class="nav-link active" aria-current="page" href="#">All Words</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">JavaScript</a>
+          <a class="nav-link" href="#" id="js-vocab">JavaScript</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">HTML and CSS</a>
