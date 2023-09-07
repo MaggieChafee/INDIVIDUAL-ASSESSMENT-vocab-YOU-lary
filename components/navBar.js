@@ -10,19 +10,19 @@ const navBar = () => {
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-pills">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">All Words</a>
+          <a class="nav-link active" aria-current="page" href="#" id="all-words-btn">All Words</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#" id="js-vocab">JavaScript</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">HTML and CSS</a>
+          <a class="nav-link" href="#" id="html-btn">HTML and CSS</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Asynchronous Programming</a>
+          <a class="nav-link" href="#" id="async-btn">Asynchronous Programming</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Study Corner</a>
+          <a class="nav-link" href="#" id="study-corner-btn">Study Corner</a>
         </li>                
       </ul>
       <form class="d-flex" role="search">
