@@ -1,5 +1,5 @@
-import clearDom from '../utils/clearDom';
-import renderToDom from '../utils/renderToDom';
+import clearDom from '../../utils/clearDom';
+import renderToDom from '../../utils/renderToDom';
 
 const addWordForm = (obj = {}) => {
   clearDom();
@@ -21,12 +21,12 @@ const addWordForm = (obj = {}) => {
   <div class="input-group mb-3">
     <select class="form-select" id="word-form-category" ${obj.category || ''}>
       <option selected>Choose...</option>
-      <option value="1">JavaScript</option>
-      <option value="2">HTML and CSS</option>
-      <option value="3">Asynchronous Programming</option>
+      <option value="JavaScript">JavaScript</option>
+      <option value="HTML and CSS">HTML and CSS</option>
+      <option value="Asynchronous Programming">Asynchronous Programming</option>
     </select>
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-primary" id="submit-word">Submit</button>
 </form>`;
 
   renderToDom('#form-container', domString);

@@ -3,8 +3,8 @@ import client from '../utils/client';
 const endpoint = client.databaseURL;
 
 // GET Vocab by UserID
-const getVocab = (userId) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/vocab.json?orderBy="userId"&equalTo="${userId}"`, {
+const getVocab = (uid) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/vocab.json?orderBy="uid"&equalTo="${uid}"`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json'
@@ -21,7 +21,6 @@ const getVocab = (userId) => new Promise((resolve, reject) => {
 });
 
 // DELETE Vocab
-
 const deleteVocab = (firebaseKey) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/vocab/${firebaseKey}.json`, {
     method: 'DELETE',
@@ -34,8 +33,8 @@ const deleteVocab = (firebaseKey) => new Promise((resolve, reject) => {
 });
 
 // GET JavaScript Specific Vocab
-const getJavaScriptVocab = () => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/vocab.json?orderBy="category"&equalTo="JavaScript"`, {
+const getJavaScriptVocab = (uid) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/vocab.json?orderBy="uid"&equalTo="${uid}"`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json'
@@ -45,4 +44,30 @@ const getJavaScriptVocab = () => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-export { getVocab, deleteVocab, getJavaScriptVocab };
+const createVocab = (payload) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/vocab.json`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(payload),
+  }).then((response) => response.json())
+    .then((data) => resolve(data))
+    .catch(reject);
+});
+
+const updateVocab = (payload) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/vocab/${payload.firebaseKey}.json`, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(payload),
+  }).then((response) => response.json())
+    .then((data) => resolve(data))
+    .catch(reject);
+});
+
+export {
+  getVocab, deleteVocab, getJavaScriptVocab, createVocab, updateVocab
+};
