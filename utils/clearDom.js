@@ -1,6 +1,6 @@
 const clearDom = () => {
   document.querySelector('#buttons').innerHTML = '';
-  document.querySelector('#form-container').innterHTML = '';
+  document.querySelector('#form-container').innerHTML = '';
   document.querySelector('#card-container').innerHTML = '';
 };
 

@@ -19,7 +19,7 @@ const navEvents = (user) => {
   });
 
   document.querySelector('#js-vocab').addEventListener('click', () => {
-    getJavaScriptVocab().then((array) => {
+    getJavaScriptVocab(user.uid).then((array) => {
       if (array.length) {
         showVocab(array);
       } else {

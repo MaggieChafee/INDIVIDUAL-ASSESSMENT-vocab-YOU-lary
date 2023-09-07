@@ -9,6 +9,9 @@ const noVocab = () => {
 const showVocab = (array) => {
   clearDom();
 
+  const btnString = '<button type="button" class="btn btn-light" id="add-word-btn">Add Vocabulary Card</button>';
+  renderToDom('#buttons', btnString);
+
   let domString = '';
 
   array.forEach((item) => {
