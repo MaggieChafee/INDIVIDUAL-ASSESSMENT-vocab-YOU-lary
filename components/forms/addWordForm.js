@@ -26,7 +26,7 @@ const addWordForm = (obj = {}) => {
       <option value="Asynchronous Programming">Asynchronous Programming</option>
     </select>
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-dark">Submit</button>
 </form>`;
 
   renderToDom('#form-container', domString);

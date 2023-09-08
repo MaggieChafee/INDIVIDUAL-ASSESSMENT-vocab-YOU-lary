@@ -8,4 +8,8 @@ const clearNav = () => {
   document.querySelector('#navigation').innerHTML = '';
 };
 
-export { clearDom, clearNav };
+const clearLogin = () => {
+  document.querySelector('#login-form-container').innerHTML = '';
+};
+
+export { clearDom, clearNav, clearLogin };

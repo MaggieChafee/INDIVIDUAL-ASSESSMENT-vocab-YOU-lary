@@ -9,18 +9,29 @@ const noVocab = () => {
 const showVocab = (array) => {
   clearDom();
 
-  const btnString = '<button type="button" class="btn btn-light" id="add-word-btn">Add Vocabulary Card</button>';
+  let btnString = '';
+
+  btnString += `
+  <button type="button" class="btn btn-dark" id="js-vocab">JavaScript</button>
+  <button type="button" class="btn btn-dark" id="html-btn">HTML and CSS</button>
+  <button type="button" class="btn btn-dark" id="async-btn">Asynchronous Programming</button>
+  `;
   renderToDom('#buttons', btnString);
 
   let domString = '';
 
   array.forEach((item) => {
     domString += `<div class="card" style="width: 18rem;">
+    <div class="card-header">
+      <h5>${item.word}</h5>
+    </div>
     <div class="card-body">
-      <h5 class="card-header">${item.word}</h5>
-      <h6 class="card-subtitle mb-2 text-body-secondary">${item.category}</h6>
-      <p class="card-text">${item.definition}</p>
-      <p>${item.studyCorner ? '<span class="badge bg-danger"><i class="fa fa-heart" aria-hidden="true"></i></span>' : ''}</p>
+      <div class="card-text" id="card-text">
+        <h6 class="card-subtitle mb-2 text-body-secondary">${item.category}</h6>
+        <p>Definition:<br>
+        ${item.definition}</p>
+      </div>
+        <p class="sc-icon">${item.studyCorner ? '<span><i class="fas fa-star fa-lg" style="color: #bfe4ff;"></i></span>' : ''}</p>
       <div id="individual-card-btns">
         <a id="edit-card--${item.firebaseKey}" href="#" class="btn btn-edit">Edit</a>
         <a id="delete-card--${item.firebaseKey}" href="#" class="btn btn-delete">Delete</a>
