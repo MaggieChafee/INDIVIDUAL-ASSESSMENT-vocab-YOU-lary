@@ -1,4 +1,4 @@
-import clearDom from '../../utils/clearDom';
+import { clearDom } from '../../utils/clearDom';
 import renderToDom from '../../utils/renderToDom';
 
 const addWordForm = (obj = {}) => {
