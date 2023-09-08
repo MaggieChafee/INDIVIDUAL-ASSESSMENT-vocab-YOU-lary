@@ -6,8 +6,10 @@ import logoutButton from '../components/logoutButton';
 import navBar from '../components/navBar';
 import domBuilder from '../pages/domBuilder';
 import { noVocab, showVocab } from '../pages/words';
+import { clearLogin } from './clearDom';
 
 const startApp = (user) => {
+  clearLogin();
   domBuilder();
   domEvents(user);
   formEvents(user);

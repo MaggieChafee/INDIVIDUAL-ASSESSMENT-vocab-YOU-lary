@@ -1,12 +1,25 @@
 @import "~@fortawesome/fontawesome-free/css/all.min.css";
-@import "~bootstrap/scss/bootstrap";
+@import '~bootstrap/scss/bootstrap';
 
 
 body {
   background-color: #D7DAFF;
   color: black;
   text-align: center;
-  margin-top: 100px;
+}
+
+#main-container {
+  margin-top: 50px;
+}
+
+#form-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+form {
+  width: 400px;
 }
 
 #card-container {
@@ -14,11 +27,12 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   gap: 15px;
-  padding: 50px;
+  margin-top: 50px;
 }
 
 .card {
   border: solid 3px #8E77F8;
+  border-radius: 10px;
 }
 
 .card-header {
@@ -27,14 +41,20 @@ body {
   font-weight: bolder;
 }
 
-.btn-edit {
-  background-color: #FFCCD2;
+.sc-icon {
+ height: 25px;
 }
 
-.btn-delete {
+.btn-edit {
   background-color: #D5FDDB;
 }
 
-form {
-  width: 400px;
+.btn-delete {
+  background-color:#FFCCD2;
+}
+
+.btn-dark {
+  background-color: #8E77F8;
+  border: none;
+  color: white;
 }

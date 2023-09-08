@@ -13,13 +13,7 @@ const navBar = () => {
           <a class="nav-link active" aria-current="page" href="#" id="all-words-btn">All Words</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#" id="js-vocab">JavaScript</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#" id="html-btn">HTML and CSS</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#" id="async-btn">Asynchronous Programming</a>
+          <a class="nav-link" href="#" id="add-word-btn">Create Entry</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#" id="study-corner-btn">Study Corner</a>
@@ -27,7 +21,7 @@ const navBar = () => {
       </ul>
       <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+        <button class="btn btn-outline-secondary" type="submit">Search</button>
       </form>
       <div id="logout-button"></div>
     </div>
