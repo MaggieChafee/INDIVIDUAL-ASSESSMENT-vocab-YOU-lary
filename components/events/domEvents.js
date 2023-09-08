@@ -1,4 +1,4 @@
-import { deleteVocab, getVocab } from '../../api/vocabData';
+import { deleteVocab, getSingleVocab, getVocab } from '../../api/vocabData';
 import { showVocab } from '../../pages/words';
 import addWordForm from '../forms/addWordForm';
 
@@ -16,6 +16,11 @@ const domEvents = (user) => {
           getVocab(user.uid).then(showVocab);
         });
       }
+    }
+
+    if (e.target.id.includes('edit-card')) {
+      const [, firebaseKey] = e.target.id.split('--');
+      getSingleVocab(firebaseKey).then((obj) => addWordForm(obj));
     }
   });
 };
