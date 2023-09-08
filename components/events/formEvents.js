@@ -18,7 +18,6 @@ const formEvents = (user) => {
       };
       createVocab(payload).then(({ name }) => {
         const patchPayload = { firebaseKey: name };
-        console.warn(patchPayload);
 
         updateVocab(patchPayload).then(() => {
           getVocab(user.uid).then(showVocab);
@@ -27,13 +26,13 @@ const formEvents = (user) => {
     }
 
     if (e.target.id.includes('edit-card')) {
-      console.warn('click check - edit');
+      const [, firebaseKey] = e.target.id.split('--');
       const payload = {
         word: document.querySelector('#vocab-word').value,
         definition: document.querySelector('#vocab-definition').value,
         studyCorner: document.querySelector('#studyCornerCheck').checked,
         category: document.querySelector('#word-form-category').value,
-        uid: user.uid
+        firebaseKey,
       };
 
       updateVocab(payload).then(() => {

@@ -43,6 +43,17 @@ const createVocab = (payload) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const getSingleVocab = (firebaseKey) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/vocab/${firebaseKey}.json`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  }).then((response) => response.json())
+    .then((data) => resolve(data))
+    .catch(reject);
+});
+
 const updateVocab = (payload) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/vocab/${payload.firebaseKey}.json`, {
     method: 'PATCH',
@@ -62,14 +73,64 @@ const getJavaScriptVocab = (uid) => new Promise((resolve, reject) => {
     headers: {
       'Content-Type': 'application/json'
     },
-  }).then((response) => response.json)
+  }).then((response) => response.json())
     .then((data) => {
-      const jsFilter = Object.values(data).filter((word) => word.category === 'JavaScript');
-      resolve(jsFilter);
+      const filter = Object.values(data).filter((word) => word.category === 'JavaScript');
+      resolve(filter);
+    })
+    .catch(reject);
+});
+
+const getHtmltVocab = (uid) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/vocab.json?orderBy="uid"&equalTo="${uid}"`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+  }).then((response) => response.json())
+    .then((data) => {
+      const filter = Object.values(data).filter((word) => word.category === 'HTML and CSS');
+      resolve(filter);
+    })
+    .catch(reject);
+});
+
+const getAsyncVocab = (uid) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/vocab.json?orderBy="uid"&equalTo="${uid}"`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+  }).then((response) => response.json())
+    .then((data) => {
+      const filter = Object.values(data).filter((word) => word.category === 'Asynchronous Programming');
+      resolve(filter);
+    })
+    .catch(reject);
+});
+
+const getStudyCornerVocab = (uid) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/vocab.json?orderBy="uid"&equalTo="${uid}"`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+  }).then((response) => response.json())
+    .then((data) => {
+      const filter = Object.values(data).filter((word) => word.studyCorner === true);
+      resolve(filter);
     })
     .catch(reject);
 });
 
 export {
-  getVocab, deleteVocab, getJavaScriptVocab, createVocab, updateVocab
+  getVocab,
+  deleteVocab,
+  getJavaScriptVocab,
+  createVocab,
+  updateVocab,
+  getSingleVocab,
+  getHtmltVocab,
+  getAsyncVocab,
+  getStudyCornerVocab
 };
