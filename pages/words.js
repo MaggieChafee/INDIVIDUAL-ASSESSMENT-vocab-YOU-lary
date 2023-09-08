@@ -1,4 +1,4 @@
-import clearDom from '../utils/clearDom';
+import { clearDom } from '../utils/clearDom';
 import renderToDom from '../utils/renderToDom';
 
 const noVocab = () => {
@@ -8,6 +8,9 @@ const noVocab = () => {
 
 const showVocab = (array) => {
   clearDom();
+
+  const btnString = '<button type="button" class="btn btn-light" id="add-word-btn">Add Vocabulary Card</button>';
+  renderToDom('#buttons', btnString);
 
   let domString = '';
 

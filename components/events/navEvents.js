@@ -1,7 +1,7 @@
 import { getJavaScriptVocab, getVocab } from '../../api/vocabData';
 import { noVocab, showVocab } from '../../pages/words';
 import { signOut } from '../../utils/auth';
-import clearDom from '../../utils/clearDom';
+import { clearDom } from '../../utils/clearDom';
 
 const navEvents = (user) => {
   document.querySelector('#logout-button').addEventListener('click', signOut);
@@ -19,7 +19,7 @@ const navEvents = (user) => {
   });
 
   document.querySelector('#js-vocab').addEventListener('click', () => {
-    getJavaScriptVocab().then((array) => {
+    getJavaScriptVocab(user.uid).then((array) => {
       if (array.length) {
         showVocab(array);
       } else {
