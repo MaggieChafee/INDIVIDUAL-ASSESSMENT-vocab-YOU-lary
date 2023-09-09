@@ -9,10 +9,10 @@ const formEvents = (user) => {
       const dateSubmitted = new Date();
       const date = dateSubmitted.toLocaleString();
       const payload = {
-        word: document.querySelector('#vocab-word').value,
-        definition: document.querySelector('#vocab-definition').value,
-        studyCorner: document.querySelector('#studyCornerCheck').checked,
-        category: document.querySelector('#word-form-category').value,
+        word: document.querySelector('#word').value,
+        definition: document.querySelector('#definition').value,
+        studyCorner: document.querySelector('#studyCorner').checked,
+        category: document.querySelector('#category').value,
         timeSubmitted: date,
         uid: user.uid
       };
@@ -28,10 +28,10 @@ const formEvents = (user) => {
     if (e.target.id.includes('edit-card')) {
       const [, firebaseKey] = e.target.id.split('--');
       const payload = {
-        word: document.querySelector('#vocab-word').value,
-        definition: document.querySelector('#vocab-definition').value,
-        studyCorner: document.querySelector('#studyCornerCheck').checked,
-        category: document.querySelector('#word-form-category').value,
+        word: document.querySelector('#word').value,
+        definition: document.querySelector('#definition').value,
+        studyCorner: document.querySelector('#studyCorner').checked,
+        category: document.querySelector('#category').value,
         firebaseKey,
       };
 

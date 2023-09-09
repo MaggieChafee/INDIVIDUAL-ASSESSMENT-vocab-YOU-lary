@@ -26,7 +26,7 @@ const showVocab = (array) => {
       <h5>${item.word}</h5>
     </div>
     <div class="card-body">
-      <div class="card-text" id="card-text">
+      <div class="card-text">
         <h6 class="card-subtitle mb-2 text-body-secondary">${item.category}</h6>
         <p>Definition:<br>
         ${item.definition}</p>
