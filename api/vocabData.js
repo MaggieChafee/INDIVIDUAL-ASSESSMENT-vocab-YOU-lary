@@ -2,7 +2,6 @@ import client from '../utils/client';
 
 const endpoint = client.databaseURL;
 
-// GET Vocab by UserID
 const getVocab = (uid) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/vocab.json?orderBy="uid"&equalTo="${uid}"`, {
     method: 'GET',
@@ -66,7 +65,6 @@ const updateVocab = (payload) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-// Filters
 const getJavaScriptVocab = (uid) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/vocab.json?orderBy="uid"&equalTo="${uid}"`, {
     method: 'GET',
@@ -132,5 +130,5 @@ export {
   getSingleVocab,
   getHtmltVocab,
   getAsyncVocab,
-  getStudyCornerVocab
+  getStudyCornerVocab,
 };
